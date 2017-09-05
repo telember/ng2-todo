@@ -7,7 +7,7 @@ import { TodoApiService } from "../todo-api.service";
   selector: 'todo-app',
   templateUrl: './todo-app.component.html',
   styleUrls: ['./todo-app.component.css'],
-  providers: [TodoManagerService, TodoApiService]
+  providers: [TodoApiService]
 })
 export class TodoAppComponent implements OnInit {
   ngOnInit(): void {
@@ -16,7 +16,6 @@ export class TodoAppComponent implements OnInit {
   }
 
   newTodo: Todo = new Todo();
- 
   constructor(
     private todoService: TodoManagerService,
     private todoAPI: TodoApiService
