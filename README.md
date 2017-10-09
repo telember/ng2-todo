@@ -1,4 +1,5 @@
-# Todos
+# Angular2 Todos App
+demo:[https://telember.github.io/ng2-todo/](https://telember.github.io/ng2-todo/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.6.
 
