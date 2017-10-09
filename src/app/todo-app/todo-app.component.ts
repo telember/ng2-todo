@@ -12,7 +12,6 @@ import { Todo } from '../todo.model';
 })
 export class TodoAppComponent implements OnInit {
   ngOnInit(): void {
-    console.log("init");
     this.loadData();
   }
 
@@ -29,9 +28,7 @@ export class TodoAppComponent implements OnInit {
   }
 
   toggleTodoComplete(todo: Todo) {
-    todo.completed = !todo.completed
-    console.log(todo.completed);
-    
+    todo.completed = !todo.completed  
     this.todoService.toggleTodoComplete(todo)
   }
 
