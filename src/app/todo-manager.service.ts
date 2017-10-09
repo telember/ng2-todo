@@ -15,7 +15,7 @@ export class TodoManagerService {
   }
 
   addTodo(todo: Todo) {
-    this.todos = [...this.todos, todo]
+    this.todos = [...this.todos, { ...todo, id: this.lastId++}]
     return this;
   }
 

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Todo } from "../todo.model";
+
 import { TodoManagerService } from "../todo-manager.service";
 import { TodoApiService } from "../todo-api.service";
+import { Todo } from '../todo.model';
 
 @Component({
   selector: 'todo-app',
@@ -23,33 +24,31 @@ export class TodoAppComponent implements OnInit {
   }
 
   addTodo() {
-    this.todoAPI.addTodo(this.newTodo)
-      .subscribe(todo => {
-        this.todoService.addTodo(todo);
-      })
+    this.todoService.addTodo(this.newTodo);
     this.newTodo = new Todo();
   }
 
   toggleTodoComplete(todo: Todo) {
     todo.completed = !todo.completed
-    this.todoAPI.updateTodoById(todo.id, todo)
-      .subscribe(resTodo => {
-        this.todoService.toggleTodoComplete(resTodo)
-      })
+    console.log(todo.completed);
+    
+    this.todoService.toggleTodoComplete(todo)
   }
 
   removeTodo(todo) {
-    this.todoAPI.deleteTodoById(todo.id)
-      .subscribe(res => {
-        this.todoService.deleteTodoById(todo.id)
-      })
+    this.todoService.deleteTodoById(todo.id)
   }
 
   loadData() {
-    this.todoAPI.getAllTodos()
-      .subscribe(res => {
-        this.todoService.todos = res
-      })
+    // this.todoAPI.getAllTodos()
+    //   .subscribe(res => {
+    //     this.todoService.todos = res
+    //   })
+  }
+
+  get todoNotComplete(){
+   return this.todoService.getAllTodos()
+      .filter(item => !item.completed)
   }
 
   get todos(){
